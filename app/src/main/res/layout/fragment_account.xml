@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="xyz.zhenhua.smartcom.activity.AccountFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+      <TextView
+          android:textSize="30dp"
+          android:gravity="center"
+          android:text="已经登录"
+          android:id="@+id/tv_login_stat"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+      <Button
+          android:text="注销"
+          android:id="@+id/btn_login_logout"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+
+      <EditText
+          android:background="@drawable/usrbackground"
+          android:hint="输入用户名"
+          android:id="@+id/et_login_usr"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:paddingLeft="60dp"
+          android:layout_marginTop="30dp" />
+      <EditText
+          android:background="@drawable/pwdbackground"
+          android:hint="输入密码"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:id="@+id/et_login_pwd"
+          android:paddingLeft="60dp"
+          android:layout_marginTop="5dp" />
+
+    <Button
+        android:layout_gravity="center"
+        android:text="登    录"
+        android:id="@+id/btn_login_lg"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="210dp"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_gravity="center"
+        android:text="注    册"
+        android:id="@+id/btn_login_rg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="10dp" />
+
+
+</LinearLayout>

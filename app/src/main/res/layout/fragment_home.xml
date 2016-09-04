@@ -1,0 +1,19 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xyz.zhenhua.smartcom.activity.HomeFragment">
+
+    <Button
+        android:layout_marginTop="420dp"
+        android:text="我"
+        android:id="@+id/btn_home_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <!-- TODO: Update blank fragment layout -->
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/map_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.baidu.mapapi.map.MapView>
+
+</FrameLayout>

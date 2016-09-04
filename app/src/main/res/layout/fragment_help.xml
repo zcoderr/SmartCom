@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="xyz.zhenhua.smartcom.activity.HelpFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="填写求助信息" />
+    <EditText
+        android:hint="填写求助标题"
+        android:id="@+id/et_seekhelp_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:singleLine="false"
+        tools:background="@android:drawable/edit_text" />
+
+    <EditText
+        android:hint="填写求助内容"
+        android:id="@+id/et_seekhelp_buf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="@android:drawable/edit_text" />
+
+    <Button
+        android:paddingBottom="10dp"
+        android:layout_gravity="center"
+        android:text="发  布  信  息"
+        android:id="@+id/btn_seekhelp_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_default"
+        android:layout_marginTop="300dp" />
+</LinearLayout>
