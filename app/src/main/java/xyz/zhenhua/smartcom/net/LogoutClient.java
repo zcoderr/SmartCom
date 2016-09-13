@@ -55,6 +55,10 @@ public class LogoutClient extends Thread {
                 }
             }
 
+            br.close();
+            bw.close();
+            socket.close();
+
 
 
         }catch (Exception e){}

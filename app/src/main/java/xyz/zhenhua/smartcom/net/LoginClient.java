@@ -65,10 +65,10 @@ public class LoginClient extends Thread {
                     message.obj = result;
                     handler.sendMessage(message);
                 }
-
-
-
-            }
+          }
+            bw.close();
+            br.close();
+            socket.close();
 //            if((result=br.readLine())!=null){
 //                Log.i("服务器返回",result);
 //                Message message = new Message();

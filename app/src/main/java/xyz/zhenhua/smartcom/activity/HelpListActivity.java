@@ -2,6 +2,9 @@ package xyz.zhenhua.smartcom.activity;
 
 import android.content.Intent;
 import android.location.LocationManager;
+import android.os.Handler;
+
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,9 +33,13 @@ import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import xyz.zhenhua.smartcom.BNDemoMainActivity;
 import xyz.zhenhua.smartcom.R;
 import xyz.zhenhua.smartcom.entity.LatLon;
+import xyz.zhenhua.smartcom.entity.Mess;
+import xyz.zhenhua.smartcom.net.FindMessClient;
+import xyz.zhenhua.smartcom.utils.Utils;
 
 import static com.baidu.mapapi.BMapManager.getContext;
 import static xyz.zhenhua.smartcom.R.drawable.marker;
@@ -46,10 +53,22 @@ public class HelpListActivity extends AppCompatActivity {
     public MapView mapView;
     MapStatus mMapStatus;
     List<LatLon> HelpList;
-
     LocationManager locationManager;
     public LocationClient mLocationClient = null; // LocationClient类是定位sdk的核心类
     LatLng myLoc;
+    Handler handler = new Handler(){
+        public void handleMessage(Message msg){
+            if(msg.what== Utils.PEO_LIST){
+                Mess mess = (Mess)msg.obj;
+                String s = mess.getUsername()+mess.getTitle()+
+                        mess.getBuf()+mess.getEast()+mess.getNorth()+mess.getDatetime();
+                Log.i("HelpListClient",s);
+                addMarker(mess.getNorth(),mess.getEast());
+                Toast.makeText(HelpListActivity.this,"成功获取到求助信息",Toast.LENGTH_LONG).show();
+
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,23 +84,25 @@ public class HelpListActivity extends AppCompatActivity {
         // 配置定位SDK参数
         initLocation();
         //注册监听事件
+        new FindMessClient(handler).start();
 
-        HelpList = new ArrayList<LatLon>();
-        LatLon a = new LatLon();
-        a.setLat(45.727000);
-        a.setLon(126.65900);
-        LatLon b = new LatLon();
-        b.setLat(45.727100);
-        b.setLon(126.65100);
-        LatLon c = new LatLon();
-        c.setLat(45.727200);
-        c.setLon(126.65200);
-        HelpList.add(a);
-        HelpList.add(b);
-        HelpList.add(c);
-        for (LatLon l:HelpList){
-            addMarker(l.getLat(),l.getLon());
-        }
+//        模拟点
+//        HelpList = new ArrayList<LatLon>();
+//        LatLon a = new LatLon();
+//        a.setLat(45.727000);
+//        a.setLon(126.65900);
+//        LatLon b = new LatLon();
+//        b.setLat(45.727100);
+//        b.setLon(126.65100);
+//        LatLon c = new LatLon();
+//        c.setLat(45.727200);
+//        c.setLon(126.65200);
+//        HelpList.add(a);
+//        HelpList.add(b);
+//        HelpList.add(c);
+//        for (LatLon l:HelpList){
+//            addMarker(l.getLat(),l.getLon());
+//        }
     }
     private void initLocation(){
         LocationClientOption option = new LocationClientOption();

@@ -73,7 +73,7 @@ public class HelpFragment extends Fragment {
                 }else{
                     sharedPreferences2 = getContext().getSharedPreferences("location",Context.MODE_PRIVATE);
                     String sx = sharedPreferences2.getString("x","1.1");
-                    String sy = sharedPreferences2.getString("x","1.1");
+                    String sy = sharedPreferences2.getString("y","1.1");
                     x = Double.parseDouble(sx);
                     y = Double.parseDouble(sy);
                     new SeekHelpClient(username,title.getText().toString(),buf.getText().toString(),x,y,key,handler).start();

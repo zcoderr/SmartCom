@@ -22,6 +22,7 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import xyz.zhenhua.smartcom.R;
+import xyz.zhenhua.smartcom.net.FindMessClient;
 import xyz.zhenhua.smartcom.net.RegisterClient;
 import xyz.zhenhua.smartcom.net.SocThread;
 import xyz.zhenhua.smartcom.utils.Utils;
@@ -38,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         public void handleMessage(Message msg){
             //注册成功
             if(msg.what == Utils.REGISTER_SUCESS){
-                Toast.makeText(getContext(),"恭喜!注册成功!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(),"恭喜!注册成功!",Toast.LENGTH_LONG).show();
                 finish();
             }
         }
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new RegisterClient(handler,username.getText().toString(),password.getText().toString()).start();
+                //new FindMessClient().start();
             }
         });
 

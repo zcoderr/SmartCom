@@ -5,7 +5,7 @@ package xyz.zhenhua.smartcom.xmlparse;
  */
 
 public class ParseUser {
-    public String PackUser(String username,String  password){
+    public static String PackUser(String username,String  password){
         String result =
                 "<?xml version=\"1.0\" encoding=\"GB2312\"?>"+
                         "<User>"+

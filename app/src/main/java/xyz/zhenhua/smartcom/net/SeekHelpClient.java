@@ -60,10 +60,10 @@ public class SeekHelpClient extends Thread {
                     message.what = Utils.SENDHELP_SUCCESS;
                     handler.sendMessage(message);
                 }
-
-
-
             }
+            bw.close();
+            br.close();
+            socket.close();
 
         }catch (Exception e){
 
